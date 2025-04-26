@@ -1,4 +1,5 @@
 "use client"
+import styles from "./style.module.css";
 import { deleteProduct, fetchProducts } from "@/utils/apiUtils/ProductUtil";
 import { useEffect, useState } from "react";
 import { MdDelete, MdUpdate } from "react-icons/md";
@@ -34,31 +35,37 @@ const ProductList = () => {
     }
 
     return (
-        <div>
-            <div>
-                <Link href="/admin"> anasayfaya dön</Link>
-                <h2>Ürünler</h2>
-                <Link href="/admin/products/add">Ürün Ekle</Link>
-                <ul>
-                    {products.map((product) => (
-                        <li key={product._id}>{product.name}
+        <div className={styles.container}>
+            <div className={styles.nav}>
+                <Link href="/admin" className={styles.link}>Anasayfaya Dön</Link>
+                <Link href="/admin/products/add" className={styles.link}>Ürün Ekle</Link>
+            </div>
+
+            <h2 className={styles.title}>Ürünler</h2>
+
+            <ul className={styles.list}>
+                {products.map((product) => (
+                    <li key={product._id} className={styles.listItem}>
+                        {product.name}
+                        <div className={styles.actions}>
                             <button
-                                onClick={() => handleDelete(product._id)} style={{ marginLeft: 10 }}>
-
-
-                                <MdDelete color="red" />
+                                onClick={() => handleDelete(product._id)}
+                                className={styles.iconButton}
+                                title="Sil"
+                            >
+                                <MdDelete color="red" size={20} />
                             </button>
                             <button
                                 onClick={() => router.push(`/admin/products/update/${product._id}`)}
-
-                                style={{ marginLeft: 10 }}
+                                className={styles.iconButton}
+                                title="Güncelle"
                             >
-                                <MdUpdate color="blue" />
+                                <MdUpdate color="blue" size={20} />
                             </button>
-                        </li>
-                    ))}
-                </ul>
-            </div>
+                        </div>
+                    </li>
+                ))}
+            </ul>
         </div>
     )
 }

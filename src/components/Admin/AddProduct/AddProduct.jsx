@@ -1,6 +1,7 @@
 "use client"
+import styles from "./style.module.css";
 import { useState, useEffect } from "react";
-import { addProduct } from "@/utils/apiUtils/ProductUtil"; // Eğer ayrı bir dosyada tuttuysan import et
+import { addProduct } from "@/utils/apiUtils/ProductUtil"; 
 import { fetchCategories } from "@/utils/apiUtils/CategoryUtil";
 import Link from "next/link";
 const AddProduct = () => {
@@ -68,10 +69,10 @@ const AddProduct = () => {
         return <p>Loading...</p>
     }
     return (
-        <div>
-            <Link href="/admin/products">Ürünlere dön</Link>
-            <h2>Ürün Ekle</h2>
-            <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "10px", maxWidth: "300px" }}>
+        <div className={styles.container}>
+            <Link href="/admin/products" className={styles.backLink}>Ürünlere dön</Link>
+            <h2 className={styles.title}>Ürün Ekle</h2>
+            <form onSubmit={handleSubmit} className={styles.form}>
                 <input
                     type="text"
                     name="name"
@@ -79,18 +80,22 @@ const AddProduct = () => {
                     value={form.name}
                     onChange={handleChange}
                     required
+                    className={styles.input}
                 />
-
-                <select name="categoryId" value={form.categoryId} onChange={handleChange} required>
+                <select
+                    name="categoryId"
+                    value={form.categoryId}
+                    onChange={handleChange}
+                    required
+                    className={styles.select}
+                >
                     <option value="">Kategori Seçin</option>
                     {categories.map((c) => (
                         <option key={c._id} value={c._id}>
                             {c.name}
                         </option>
                     ))}
-
                 </select>
-
                 <input
                     type="number"
                     name="price"
@@ -98,6 +103,7 @@ const AddProduct = () => {
                     value={form.price}
                     onChange={handleChange}
                     required
+                    className={styles.input}
                 />
                 <input
                     type="text"
@@ -105,12 +111,14 @@ const AddProduct = () => {
                     placeholder="Resim URL"
                     value={form.image}
                     onChange={handleChange}
+                    className={styles.input}
                 />
                 <textarea
                     name="description"
                     placeholder="Açıklama"
                     value={form.description}
                     onChange={handleChange}
+                    className={styles.textarea}
                 />
                 <input
                     type="number"
@@ -119,10 +127,11 @@ const AddProduct = () => {
                     value={form.stockAmount}
                     onChange={handleChange}
                     required
+                    className={styles.input}
                 />
-                <button type="submit">Ekle</button>
+                <button type="submit" className={styles.button}>Ekle</button>
             </form>
-            {message && <p>{message}</p>}
+            {message && <p className={styles.message}>{message}</p>}
         </div>
     );
 };
