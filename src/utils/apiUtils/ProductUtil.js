@@ -63,7 +63,13 @@ export const handleUpdateProduct = async (_id, name, categoryId, price, image, d
 }
 
 export const getBestSellerProduct = async () => {
-
+    try {
+        const res = await fetch("http://localhost:3000/api/bestSellerProducts");
+        const data = await res.json();
+        return data;
+    } catch (error) {
+        console.error("Product fetch hatası:", error);
+        return "hata"
+    }
 }
-
 

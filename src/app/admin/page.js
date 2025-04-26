@@ -1,13 +1,19 @@
-const { default: Link } = require("next/link")
+"use client";
 
+import Link from "next/link";
+import styles from "./style.module.css";
 
-const page = () => {
+const Page = () => {
     return (
-        <div>
-            <Link href="/admin/categories">Kategoriler</Link>
-            <Link href="/admin/products">Ürünler</Link>
+        <div className={styles.container}>
+            <Link href="/admin/categories" className={styles.linkButton}>
+                Kategoriler
+            </Link>
+            <Link href="/admin/products" className={styles.linkButton}>
+                Ürünler
+            </Link>
         </div>
-    )
-}
+    );
+};
 
-export default page;
+export default Page;
