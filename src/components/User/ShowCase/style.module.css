@@ -1,0 +1,141 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 20px;
+    flex-wrap: nowrap; 
+    overflow-x: auto;  
+    background-color: #f4f6f8; 
+    border-radius: 12px;
+  }
+  
+  .productBox {
+    min-width: 160px; 
+    max-width: 180px;
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 15px;
+    text-align: center;
+    flex-shrink: 0; 
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+
+  .productBox:nth-child(1) {
+    background-color: #e3f2fd; 
+  }
+  .productBox:nth-child(2) {
+    background-color: #fce4ec; 
+  }
+  .productBox:nth-child(3) {
+    background-color: #e8f5e9; 
+  }
+  .productBox:nth-child(4) {
+    background-color: #fff3e0; 
+  }
+  
+  .img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 10px;
+  }
+  
+  .title {
+    font-size: 1.1em;
+    font-weight: 600;
+    margin: 8px 0 5px 0;
+    color: #222;
+  }
+  
+  .desc {
+    font-size: 0.9em;
+    color: #555;
+    margin-bottom: 12px;
+  }
+  
+  .shopButton {
+    display: inline-block;
+    background-color: #0070f3;
+    color: white;
+    padding: 6px 14px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease;
+  }
+  
+  .shopButton:hover {
+    background-color: #0051c3;
+  }
+  
+ 
+@media (max-width: 1200px) {
+    .container {
+      gap: 15px;
+    }
+  
+    .productBox {
+      min-width: 140px;
+      max-width: 160px;
+    }
+  }
+  
+  @media (max-width: 900px) {
+    .container {
+      flex-wrap: wrap; 
+      justify-content: center; 
+    }
+  
+    .productBox {
+      min-width: 180px; 
+      max-width: 200px;
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .container {
+      gap: 10px;
+    }
+  
+    .productBox {
+      min-width: 120px; 
+      max-width: 140px;
+    }
+  
+    .title {
+      font-size: 1em; 
+    }
+  
+    .desc {
+      font-size: 0.8em; 
+    }
+  
+    .shopButton {
+      font-size: 0.8em; 
+    }
+  }
+  
+  @media (max-width: 400px) {
+    .container {
+      gap: 5px;
+    }
+  
+    .productBox {
+      min-width: 100%;
+      max-width: 100%;
+    }
+  
+    .title {
+      font-size: 0.9em; 
+    }
+  
+    .desc {
+      font-size: 0.75em; 
+    }
+  
+    .shopButton {
+      font-size: 0.75em; 
+    }
+  }

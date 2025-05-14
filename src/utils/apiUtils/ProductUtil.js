@@ -73,3 +73,13 @@ export const getBestSellerProduct = async () => {
     }
 }
 
+export const getProductsForcategoryId = async (id) => {
+    try {
+        const res = await fetch(`http://localhost:3000/api/products/getProductsByCategoryId/${id}`);
+        const data = await res.json();
+        return data;
+    } catch (error) {
+        console.error("Product fetch hatası:", error);
+        return "hata"
+    }
+}

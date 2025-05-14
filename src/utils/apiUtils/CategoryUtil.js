@@ -46,3 +46,20 @@ export const addCategory = async ({ name }) => {
         return { ok: false, message: "Sunucu hatası" };
     }
 };
+
+
+export const updateCategory = async (id, name) => {
+    try {
+        const res = await fetch(`http://localhost:3000/api/categories/${id}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ id, name }),
+        });
+
+        return res;
+    } catch (error) {
+        console.error("Güncelleme hatası:", error);
+    }
+}
