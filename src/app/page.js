@@ -6,6 +6,7 @@ import BigPicture from "@/components/User/BigPicture/BigPicture";
 import Promotion from "@/components/User/Promotion/Promotion";
 import Footer from "@/components/User/Footer/Footer";
 import ShowCase from "@/components/User/ShowCase/ShowCase";
+import HomeProducts from "@/components/User/HomeProducts/HomeProducts";
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
     <BigPicture/>
     <UserCategoryList/>
     <Promotion/>
+    <HomeProducts/>
     <ShowCase/>
     <BestSellerProducts/>
     <Footer/>
