@@ -1,0 +1,73 @@
+.container {
+  display: flex;
+  justify-content: flex-start;
+  margin: 0 20px;
+}
+
+.leftSide {
+  width: 50%;
+  padding: 20px;
+}
+
+.rightSide {
+  width: 50%;
+  padding: 20px;
+}
+
+.title {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.productList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.card {
+  border: 1px solid black;
+  padding: 10px;
+  width: calc(33.33% - 20px);
+  box-sizing: border-box;
+  margin-bottom: 20px;
+  background-color: #fff;
+}
+
+.productImage {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.paginationWrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.pagination {
+  display: flex;
+  list-style-type: none;
+  gap: 10px;
+  padding: 0;
+}
+
+.pageButton {
+  padding: 5px 10px;
+  background-color: #f1f1f1;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.pageButton:hover {
+  background-color: #ddd;
+}
+
+.activePage {
+  background-color: #007bff;
+  color: white;
+  font-weight: bold;
+}

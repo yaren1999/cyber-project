@@ -1,12 +1,32 @@
 "use client";
 
-import React from "react";
-import { useRouter } from "next/navigation";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import styles from "./style.module.css";
 
 const Promotion = () => {
-  const productId = "680a81463ae7d867098f63bc"; 
+  const [product, setProduct] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchProduct = async () => {
+      try {
+        const res = await fetch("/api/products", { cache: "no-store" });
+        const data = await res.json();
+        if (data && data.length > 0) {
+          setProduct(data[0]); // İlk ürünü alıyoruz
+        }
+      } catch (error) {
+        console.error("Ürünler çekilemedi:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchProduct();
+  }, []);
+
+  if (loading) return <p>Yükleniyor...</p>;
+  if (!product) return <p>Ürün bulunamadı.</p>;
 
   return (
     <div className={styles.frame}>
@@ -43,8 +63,9 @@ const Promotion = () => {
           <p className={styles.macbook2}>MacBook Air'ın benzersiz sıradışı özellikleriyle artık sizlerle.</p>
         </div>
         <img src="/promotion/macbook.png" alt="MacBook Pro 14" className={styles.MacBookPro14} />
-      
-        <Link href={`/products/${productId}`} className={styles.shopButton}>
+
+        {/* Dinamik product id ile yönlendirme */}
+        <Link href={`/products/${product._id}`} className={styles.shopButton}>
           Buy Now
         </Link>
       </div>

@@ -19,8 +19,8 @@ const CartPage = () => {
     <div>
       <h2>Sepetiniz</h2>
       <ul>
-        {cartItems.map((item) => (
-          <li key={item._id}>
+          {cartItems.map((item) => (
+          <li key={item.cartItemId}>
             <img src={item.image} alt={item.name} width={50} height={50} />
             <span>{item.name}</span> - <strong>{item.price} TL</strong>
           </li>

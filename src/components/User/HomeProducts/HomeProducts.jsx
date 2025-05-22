@@ -19,17 +19,20 @@ const HomeProducts = () => {
     getData();
   }, []);
 
-  const handleAddToCart = (product) => {
-    const existingCart = JSON.parse(localStorage.getItem("cart")) || [];
+    const handleAddToCart = (product) => {
+      const existingCart = JSON.parse(localStorage.getItem("cart")) || [];
 
-    
-    const updatedCart = [...existingCart, product];
+      const newCartItem = {
+        ...product,
+        cartItemId: `${product._id}-${Date.now()}` 
+      };
 
-    
-    localStorage.setItem("cart", JSON.stringify(updatedCart));
+      const updatedCart = [...existingCart, newCartItem];
 
-    alert(`${product.name} sepete eklendi! ❤️`);
-  };
+      localStorage.setItem("cart", JSON.stringify(updatedCart));
+
+      alert(`${product.name} sepete eklendi! ❤️`);
+    };
 
   return (
     <div className={styles.container}>

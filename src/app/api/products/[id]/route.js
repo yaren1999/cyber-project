@@ -3,19 +3,16 @@ import connect from "@/utils/dbConnect"
 import { NextResponse } from "next/server";
 
 
-export const GET = async (request, { params }) => {
-    const { id } = params;
-    await connect();
-
-
-    try {
-        const product = await Product.findById(id);
-        return new NextResponse(JSON.stringify(product), { status: 200 })
-    } catch (error) {
-        return new NextResponse("ürün bulunamadı", { status: 500 })
-
-    }
-}
+export const GET = async (request, context) => {
+  const id = context.params.id;
+  await connect();
+  try {
+    const product = await Product.findById(id);
+    return new NextResponse(JSON.stringify(product), { status: 200 });
+  } catch (error) {
+    return new NextResponse("ürün bulunamadı", { status: 500 });
+  }
+};
 
 
 export const PUT = async (request, { params }) => {
