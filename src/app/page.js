@@ -17,7 +17,7 @@ export default function Home() {
     <HomeProducts/>
     <ShowCase/>
     <BestSellerProducts/>
-    <Footer/>
+   
    </div>
   );
 }
